@@ -9,8 +9,18 @@ on:
         required: true
         description: A Cheerfull word
 
+      log-level:
+        type: choice
+        options:
+          - info
+          - warn
+          - error
+        default: info
+        description: ログレベルの選択
+
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ inputs.greeting }}"
+      - run: echo "${{ inputs.log-level }}"
